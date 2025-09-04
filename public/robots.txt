@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://personal-portfolio-ten-chi-41.vercel.app/sitemap.xml
