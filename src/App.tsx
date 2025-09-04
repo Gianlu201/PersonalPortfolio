@@ -16,7 +16,7 @@ function App() {
       <div className='relative'>
         <Background />
         <div className='absolute top-0 left-0 z-20 w-full h-screen overflow-y-auto'>
-          <div className='grid grid-cols-4 gap-6 md:gap-10 max-w-6xl mx-6 xl:mx-auto md:py-8 py-5'>
+          <div className='grid grid-cols-4 gap-6 md:gap-10 max-w-6xl mx-6 xl:mx-auto md:py-8 py-5 pb-24'>
             {/* Barra sinistra per informazioni di contatto */}
             <InfosBar />
 
