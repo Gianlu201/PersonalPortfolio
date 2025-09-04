@@ -49,7 +49,7 @@ const BottomNavbar = () => {
   };
 
   return (
-    <div className='sticky md:hidden -bottom-0.5 left-0 right-0 z-50 w-full bg-background pb-3'>
+    <div className='fixed md:hidden -bottom-0.5 left-0 right-0 z-50 w-full bg-background pb-3'>
       <ul className='flex justify-around items-center px-2'>
         {menuOptions.map((option) => (
           <li key={option.label}>
