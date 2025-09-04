@@ -1,69 +1,84 @@
-# React + TypeScript + Vite
+# Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Panoramica
 
-Currently, two official plugins are available:
+Questo progetto è il sito personale che raccoglie:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- la presentazione personale (bio, competenze),
+- la lista dei progetti realizzati con link alle rispettive repository GitHub e demo,
+- certificazioni IT e badge professionali,
+- canali di contatto (email, social, LinkedIn, ecc.),
+- un form di contatto che consente ai visitatori di mandare direttamente messaggi dal sito.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Caratteristiche principali
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Homepage con riepilogo e call-to-action verso i progetti.
+- Pagina/area “Projects” che mostra ogni progetto con descrizione, tecnologie, link GitHub e link demo (se disponibile).
+- Sezione “Certificazioni” con PDF/badge o link verso certificatori.
+- Form di contatto (client-side + endpoint o servizio esterno per invio email).
+- Responsive design e gestione asset.
+- Facilità di aggiornamento (aggiunta di nuovi progetti da file `src/data/projects.*`).
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Stack tecnologico
+
+- **Framework:** React + TypeScript
+- **Tooling:** Vite
+- **Styling:** CSS + TailwindCSS, componenti modulari
+
+---
+
+## Struttura del progetto
+
+```
+/PersonalPortfolio
+├─ public/
+│  ├─ file/
+│  ├─ illustrations/
+│  │  └─ technologies/
+│  └─ images/
+│     ├─ certifications/
+│     └─ projects/
+├─ src/
+│  ├─ assets/
+│  ├─ components/
+│  ├─ pages/
+│  ├─ data/
+│  ├─ App.tsx
+│  └─ main.tsx
+├─ index.html
+├─ package.json
+├─ vite.config.ts
+├─ tsconfig.json
+└─ README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installazione e sviluppo locale
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisiti
+
+- Node.js (LTS) e npm/yarn.
+
+### Comandi
+
+```bash
+git clone https://github.com/Gianlu201/PersonalPortfolio.git
+cd PersonalPortfolio
+
+npm install
+npm run dev       # avvia server di sviluppo
+
 ```
+
+---
+
+## Contatti
+
+Progetto realizzato da [**Gianluca Di Diego**](https://github.com/Gianlu201)
+
+- **Repository:** [GitHub/Gianlu201/PersonalPortfolio](https://github.com/Gianlu201/PersonalPortfolio)
