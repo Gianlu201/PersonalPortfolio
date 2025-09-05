@@ -47,7 +47,7 @@ const About = () => {
         <li className='ms-5 mb-3 list-disc'>
           <p className='text-gray-200 leading-7'>
             <b className='text-primary'>Backend</b>: C#, ASP.NET, Entity
-            Framework, MS SQL. Esperienza nello sviluppo di applicazioni web
+            Framework, SQL Server. Esperienza nello sviluppo di applicazioni web
             robuste e scalabili, con integrazione di database per la gestione
             dei dati.
           </p>
