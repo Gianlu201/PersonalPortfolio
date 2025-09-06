@@ -9,13 +9,22 @@ import About from './pages/About';
 import Certifications from './pages/Certifications';
 import Contacts from './pages/Contacts';
 import BottomNavbar from './components/BottomNavbar';
+import NotFound from './pages/NotFound';
+import ScrollToTop from './components/ScrollToTop';
+import { useRef } from 'react';
 
 function App() {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <BrowserRouter>
+      <ScrollToTop scrollRef={scrollRef} behavior='auto' />
       <div className='relative'>
         <Background />
-        <div className='absolute top-0 left-0 z-20 w-full h-screen overflow-y-auto'>
+        <div
+          ref={scrollRef}
+          className='absolute top-0 left-0 z-20 w-full h-screen overflow-y-auto'
+        >
           <div className='grid grid-cols-4 gap-6 md:gap-10 max-w-6xl mx-6 xl:mx-auto md:py-8 py-5 pb-24'>
             {/* Barra sinistra per informazioni di contatto */}
             <InfosBar />
@@ -34,6 +43,8 @@ function App() {
                   />
                   <Route path='/certificati' element={<Certifications />} />
                   <Route path='/contatti' element={<Contacts />} />
+
+                  <Route path='/*' element={<NotFound />} />
                 </Routes>
               </div>
             </section>

@@ -10,7 +10,7 @@ import {
   Tally4,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import type { Project } from '../types/interfaces';
 import { projects } from '../utilities/projects';
 import InfiniteCarousel from '../components/InfiniteCarousel';
@@ -21,6 +21,7 @@ const ProjectDetails = () => {
   const [projectImages, setProjectImages] = useState<string[]>([]);
 
   const params = useParams();
+  const navigate = useNavigate();
 
   const getTechnicalDetailsIcon = (number: number) => {
     switch (number) {
@@ -51,61 +52,67 @@ const ProjectDetails = () => {
       if (currentProject.img4url) imagesList.push(currentProject.img4url);
 
       setProjectImages(imagesList);
+    } else {
+      navigate('/not-found');
     }
   }, []);
 
   return (
     <>
       <div className='md:flex justify-between items-start'>
-        <div>
-          <h2 className='text-4xl font-bold mb-2'>{params.projectName}</h2>
-          <div className='w-[80px] bg-primary h-1 rounded-full mb-4'></div>
-        </div>
-
         {project && (
-          <div className='flex items-center gap-3 max-md:mb-4'>
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target='_blank'
-                className='flex justify-center items-center gap-2 text-sm font-semibold border border-gray-500 rounded-xl px-3 py-2 bg-background-lighter hover:bg-gray-600'
-              >
-                <img
-                  src='/illustrations/technologies/githubPrimary.svg'
-                  className='w-5 h-5 rounded-full'
-                />
-                GitHub
-              </a>
-            )}
-            {project.videoDemoUrl && (
-              <a
-                href='#videoDemo'
-                className='flex justify-center items-center gap-2 text-sm font-semibold border border-gray-500 rounded-xl px-3 py-2 bg-background-lighter hover:bg-gray-600'
-              >
-                <MonitorPlay className='w-4 h-4' />
-                Dimostrazione
-              </a>
-            )}
-            {project.demoUrl && (
-              <a
-                href={project.demoUrl}
-                target='_blank'
-                className='flex justify-center items-center gap-2 text-sm font-semibold border border-black rounded-xl px-3 py-2 bg-primary text-black hover:brightness-125'
-              >
-                <ExternalLink className='w-4 h-4' />
-                Demo
-              </a>
-            )}
-          </div>
+          <>
+            <div>
+              <h2 className='text-4xl font-bold mb-2'>{params.projectName}</h2>
+              <div className='w-[80px] bg-primary h-1 rounded-full mb-4'></div>
+            </div>
+
+            <div className='flex items-center gap-3 max-md:mb-4'>
+              {project.repoUrl && (
+                <a
+                  href={project.repoUrl}
+                  target='_blank'
+                  className='flex justify-center items-center gap-2 text-sm font-semibold border border-gray-500 rounded-xl px-3 py-2 bg-background-lighter hover:bg-gray-600'
+                >
+                  <img
+                    src='/illustrations/technologies/githubPrimary.svg'
+                    className='w-5 h-5 rounded-full'
+                  />
+                  GitHub
+                </a>
+              )}
+              {project.videoDemoUrl && (
+                <a
+                  href='#videoDemo'
+                  className='flex justify-center items-center gap-2 text-sm font-semibold border border-gray-500 rounded-xl px-3 py-2 bg-background-lighter hover:bg-gray-600'
+                >
+                  <MonitorPlay className='w-4 h-4' />
+                  Dimostrazione
+                </a>
+              )}
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target='_blank'
+                  className='flex justify-center items-center gap-2 text-sm font-semibold border border-black rounded-xl px-3 py-2 bg-primary text-black hover:brightness-125'
+                >
+                  <ExternalLink className='w-4 h-4' />
+                  Demo
+                </a>
+              )}
+            </div>
+          </>
         )}
       </div>
 
-      <Link
-        to={'/progetti'}
-        className='w-fit text-gray-400 flex justify-start items-center gap-1 transition-all duration-500 ease-in-out hover:gap-3 hover:underline hover:text-white mb-4'
-      >
-        <ChevronLeft className='w-5 h-5' /> Torna ai progetti
-      </Link>
+      {project && (
+        <Link
+          to={'/progetti'}
+          className='w-fit text-gray-400 flex justify-start items-center gap-1 transition-all duration-500 ease-in-out hover:gap-3 hover:underline hover:text-white mb-4'
+        >
+          <ChevronLeft className='w-5 h-5' /> Torna ai progetti
+        </Link>
+      )}
 
       {project && (
         <>
